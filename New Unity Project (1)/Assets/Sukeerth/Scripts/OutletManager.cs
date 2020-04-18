@@ -45,7 +45,7 @@ public class OutletManager : MonoBehaviour
         ChargingAtOutlet?.Invoke(outlet);
     }
 
-    public void FinishedChargingAtOutlet() {
+    public void FinishedChargingAtOutlet(Outlet outlet) {
         Debug.Log("Finished charging");
         currentOutletNum++;
         int currStage = GetCurrentStage();
