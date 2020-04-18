@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
     }
     public event Action<Stage> OnStageChange;
     public event Action<Outlet> OnFinishedCharging;
+    public event Action OnObstacleCollide;
+
+    public void Colliding()
+    {
+        OnObstacleCollide?.Invoke();
+    }
 
     public Vector3 GetPlayerPosition() {
         return player.position;
