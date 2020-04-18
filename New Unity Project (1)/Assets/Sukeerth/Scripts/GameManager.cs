@@ -14,17 +14,23 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
     #endregion
+    private Transform player;
+
     public Stage currentStage {
         get;
         private set;
     }
     public event Action<Stage> OnStageChange;
 
+    public Vector3 GetPlayerPosition() {
+        return player.position;
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -36,5 +42,5 @@ public class GameManager : MonoBehaviour
 
 public enum Stage
 {
-    Stage1, Stage2, Stage3
+    Stage1 = 0, Stage2 = 1, Stage3 = 2
 }
