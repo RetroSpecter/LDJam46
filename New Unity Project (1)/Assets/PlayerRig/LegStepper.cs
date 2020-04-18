@@ -58,7 +58,7 @@ public class LegStepper : MonoBehaviour
         // We want to pass through the center point
         Vector3 centerPoint = (startPoint + endPoint) / 2;
         // But also lift off, so we move it up by half the step distance (arbitrarily)
-        centerPoint += homeTransform.up * Vector3.Distance(startPoint, endPoint) * 2;
+        centerPoint += homeTransform.up * Vector3.Distance(startPoint, endPoint);
 
 
         // Time since step started
