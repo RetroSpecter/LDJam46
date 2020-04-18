@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/DefaultAssets/Scenes/SampleScene.unity
+- path: Assets/Sukeerth/Sukeerth.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
