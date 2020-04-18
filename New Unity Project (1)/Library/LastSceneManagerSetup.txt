@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/ObstacleObjectTesting/testing scene/TestHouseObstacles.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
