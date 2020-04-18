@@ -24,14 +24,7 @@ public class GameManager : MonoBehaviour
         private set;
     }
     public event Action<Stage> OnStageChange;
-    public event Action OnFinishedCharging;
-    public event Action OnObstacleCollide;
-
-
-    public void Colliding()
-    {
-        OnObstacleCollide?.Invoke();
-    }
+    public event Action<Outlet> OnFinishedCharging;
 
     public Vector3 GetPlayerPosition() {
         return player.position;
@@ -73,12 +66,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void StartedCharging() {
-        Invoke("FinishedCharging", chargeTime);
+    private void StartedCharging(Outlet outlet) {
+        StartCoroutine(FinishedCharging(outlet));
     }
 
-    private void FinishedCharging() {
-        OnFinishedCharging?.Invoke();
+    private IEnumerator FinishedCharging(Outlet outlet) {
+        yield return new WaitForSeconds(chargeTime);
+        OnFinishedCharging?.Invoke(outlet);
     }
 }
 
