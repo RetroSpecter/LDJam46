@@ -26,7 +26,7 @@ public class PlayerControlScript : MonoBehaviour
         float xAxis = Input.GetAxis("Horizontal");
         float yAxis = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(xAxis, 0f, yAxis).normalized * distance;
+        Vector3 movement = new Vector3(xAxis, 0f, yAxis / 4).normalized * distance;
 
         if (xAxis != 0)
         {
