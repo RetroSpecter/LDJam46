@@ -1,9 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/PlayerControl/PlayerTestScene.unity
-=======
-- path: Assets/Sukeerth/Sukeerth.unity
->>>>>>> origin/sukeerth
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
