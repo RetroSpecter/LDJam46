@@ -17,7 +17,7 @@ public class OutletManager : MonoBehaviour
     public int[] numOutletsNeededToPassStage;
     public Transform[] outletContainers;
 
-    public event System.Action ChargingAtOutlet;
+    public event System.Action<Outlet> ChargingAtOutlet;
 
     private OutletContainer[] containers;
     private int currentOutletNum;
@@ -41,8 +41,8 @@ public class OutletManager : MonoBehaviour
         return containers[GetCurrentStage()].GetWorkingOutlets();
     }
 
-    public void ChargeAtOutlet() {
-        ChargingAtOutlet?.Invoke();
+    public void ChargeAtOutlet(Outlet outlet) {
+        ChargingAtOutlet?.Invoke(outlet);
     }
 
     public void FinishedChargingAtOutlet() {
@@ -90,6 +90,12 @@ public struct OutletContainer
             }
         }
         brokenOutlets = notWorkingOutlets.ToArray();
+        foreach (Outlet outlet in brokenOutlets) {
+            outlet.triggerCollider.enabled = false;
+        }
+        foreach (Outlet outlet in workingOutlets) {
+            outlet.triggerCollider.enabled = true;
+        }
     }
 
     public Outlet[] ResetWorkingOutlets(Vector3 playerPosition) {
