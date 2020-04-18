@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerControlScript : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerControlScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.OnObstacleCollide += Reaction;
         playerBody = GetComponent<Rigidbody>();
     }
 
@@ -33,5 +35,8 @@ public class PlayerControlScript : MonoBehaviour
         playerBody.MovePosition(transform.forward * movement.z + transform.right * movement.x + transform.position);
     }
 
-    
+    private void Reaction()
+    {
+        Debug.Log("I'm reacting!");
+    }
 }
