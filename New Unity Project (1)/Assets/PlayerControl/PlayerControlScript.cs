@@ -32,4 +32,6 @@ public class PlayerControlScript : MonoBehaviour
         }
         playerBody.MovePosition(transform.forward * movement.z + transform.right * movement.x + transform.position);
     }
+
+    
 }
