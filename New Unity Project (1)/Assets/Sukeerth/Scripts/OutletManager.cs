@@ -20,21 +20,17 @@ public class OutletManager : MonoBehaviour
     public event System.Action ChargingAtOutlet;
 
     private OutletContainer[] containers;
+    private int currentOutletNum;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.OnFinishedCharging += FinishedChargingAtOutlet;
         containers = new OutletContainer[outletContainers.Length];
         for (int i = 0; i < outletContainers.Length; i++) {
             containers[i] = new OutletContainer(outletContainers[i]);
         }
         containers[0].FlipBreakers(GameManager.instance.GetPlayerPosition());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public int GetOutletGoal() {
@@ -50,7 +46,12 @@ public class OutletManager : MonoBehaviour
     }
 
     public void FinishedChargingAtOutlet() {
-        // TODO: handle stage transitions
+        Debug.Log("Finished charging");
+        currentOutletNum++;
+        int currStage = GetCurrentStage();
+        if (currentOutletNum >= numOutletsNeededToPassStage[currStage]) {
+            GameManager.instance.ChangeStage(currStage + 1);
+        }
         containers[GetCurrentStage()].FlipBreakers(GameManager.instance.GetPlayerPosition());
     }
 
