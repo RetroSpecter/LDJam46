@@ -18,7 +18,7 @@ public class ConstraintController : MonoBehaviour
 
     void Update()
     {
-        mps.data.offset = target.transform.localPosition;
+        mps.data.offset = target.transform.localPosition/100; //Note: i had to do this because the scale was fucked on the model
         mrs.data.offset = target.transform.localEulerAngles;
     }
 }
