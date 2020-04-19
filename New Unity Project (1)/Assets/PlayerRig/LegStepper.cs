@@ -9,7 +9,7 @@ public class LegStepper : MonoBehaviour
     // Stay within this distance of home
     [SerializeField] float wantStepAtDistance;
     // How long a step takes to complete
-    [SerializeField] float moveDuration;
+    [SerializeField] float moveDuration, moveDurationMax;
 
     // Is the leg moving?
     public bool Moving;
@@ -75,8 +75,8 @@ public class LegStepper : MonoBehaviour
         {
             // Add time since last frame to the time elapsed
             timeElapsed += Time.deltaTime;
-
-            float normalizedTime = timeElapsed / moveDuration;
+            float dist = towardHome.magnitude /(wantStepAtDistance*3);
+            float normalizedTime = timeElapsed / Mathf.Lerp(moveDuration, moveDurationMax, dist);
 
             // Quadratic bezier curve
             transform.position =
