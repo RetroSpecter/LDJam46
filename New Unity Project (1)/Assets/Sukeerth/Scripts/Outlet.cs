@@ -24,5 +24,5 @@ public class Outlet : MonoBehaviour
             Destroy(spark, 1);
             triggerCollider.enabled = false;
         }
-    }
+    } 
 }
