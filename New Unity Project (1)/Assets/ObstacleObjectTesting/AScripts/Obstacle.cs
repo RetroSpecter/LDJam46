@@ -36,6 +36,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.transform.GetComponent<PlayerControlScript>()) {
             GameManager.instance.Colliding(this.gameObject);
+            AudioManager.instance.Play("Impact");
         }
     }
 }

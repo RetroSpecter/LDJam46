@@ -41,6 +41,7 @@ public class PlayerControlScript : MonoBehaviour
     private void Downed(GameObject o)
     {
         currentlyDown = true;
+        AudioManager.instance.PlayRandomHurt();
         // do other things?
     }
 
