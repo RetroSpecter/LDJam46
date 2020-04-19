@@ -32,6 +32,7 @@ public class Outlet : MonoBehaviour
             return;
         }
         GameObject spark = Instantiate(sparksParticle, transform);
+        AudioManager.instance.Play("Charge");
         OutletManager.instance.ChargeAtOutlet(this);
         Destroy(spark, 1);
         triggerCollider.enabled = false;
