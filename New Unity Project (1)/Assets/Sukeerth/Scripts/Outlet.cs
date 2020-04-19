@@ -21,7 +21,6 @@ public class Outlet : MonoBehaviour
     }
 
     public void TurnOn(bool on) {
-        print(on);
         flashingShader.on = on;
     }
 
@@ -31,6 +30,7 @@ public class Outlet : MonoBehaviour
             OutletManager.instance.ChargeAtOutlet(this);
             Destroy(spark, 1);
             triggerCollider.enabled = false;
+            flashingShader.on = false;
         }
     } 
 }
