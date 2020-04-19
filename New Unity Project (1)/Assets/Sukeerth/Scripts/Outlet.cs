@@ -6,15 +6,23 @@ public class Outlet : MonoBehaviour
 {
     public Collider triggerCollider;
     public GameObject sparksParticle;
+    private OutletShaderController flashingShader;
+
     // Start is called before the first frame update
     void Start()
     {
+        flashingShader = GetComponent<OutletShaderController>();
         if (triggerCollider == null) {
             triggerCollider = GetComponent<Collider>();
         }
         if (sparksParticle == null) {
             sparksParticle = Resources.Load("Sparks") as GameObject;
         }
+    }
+
+    public void TurnOn(bool on) {
+        print(on);
+        flashingShader.on = on;
     }
 
     private void OnTriggerEnter(Collider other) {
