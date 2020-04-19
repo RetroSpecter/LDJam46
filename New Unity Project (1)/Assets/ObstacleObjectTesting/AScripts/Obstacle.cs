@@ -34,7 +34,8 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<PlayerControlScript>()) {
+        if (collision.transform.GetComponent<PlayerControlScript>() && !GameManager.instance.isInvulnerable) {
+            AudioManager.instance.Play("Impact");
             GameManager.instance.Colliding(this.gameObject);
         }
     }

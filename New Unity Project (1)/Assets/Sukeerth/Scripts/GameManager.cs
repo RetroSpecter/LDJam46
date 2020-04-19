@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         get;
         private set;
     }
+    public bool isInvulnerable;
     public event Action<Stage> OnStageChange;
     public event Action<Outlet> OnFinishedCharging;
     public event Action<GameObject> PlayerFall;
