@@ -36,9 +36,8 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("yes");
         if (collision.transform.GetComponent<PlayerControlScript>()) {
-            GameManager.instance.fallOver(this.gameObject);
+            GameManager.instance.Colliding(this.gameObject);
         }
     }
 }

@@ -64,12 +64,6 @@ public class GameManager : MonoBehaviour
         OutletManager.instance.ChargingAtOutlet += StartedCharging;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void StartedCharging(Outlet outlet) {
         StartCoroutine(FinishedCharging(outlet));
     }

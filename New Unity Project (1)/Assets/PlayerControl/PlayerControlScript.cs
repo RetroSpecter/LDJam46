@@ -4,7 +4,6 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class PlayerControlScript : MonoBehaviour
 {
 
@@ -20,7 +19,7 @@ public class PlayerControlScript : MonoBehaviour
     {
         GameManager.instance.PlayerFall += Downed;
         GameManager.instance.PlayerStand += GetUp;
-        nav = GetComponent<NavMeshAgent>();
+        nav = transform.parent.GetComponent<NavMeshAgent>();
         nav.updateRotation = false;
     }
 
@@ -29,22 +28,11 @@ public class PlayerControlScript : MonoBehaviour
     {
         if (!currentlyDown)
         {
-
-            Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-            if (Vector3.Distance(input, Vector3.zero) > 0.1f)
-            {
-                nav.isStopped = false;
-                Debug.Log("in");
-                input = cam.TransformDirection(input);
-                input.y = 0;
-                nav.SetDestination(transform.position + input.normalized * moveSpeed * Time.deltaTime);
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(
-                    input, Vector3.up), rotationSpeed * Time.deltaTime);
-            }
-            else
-            {
-                nav.isStopped = true;
-            }
+            float input = Input.GetAxisRaw("Vertical");
+            transform.forward = new Vector3(cam.forward.x, 0, cam.forward.z);
+            Vector3 destination = transform.position + transform.forward *
+                input * moveSpeed * Time.deltaTime;
+            nav.SetDestination(destination);
         }
     }
 
