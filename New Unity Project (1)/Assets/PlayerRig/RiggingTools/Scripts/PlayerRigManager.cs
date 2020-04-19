@@ -11,6 +11,8 @@ public class PlayerRigManager : MonoBehaviour
     private void Start()
     {
         GameManager.instance.PlayerFall += SwitchToRagdoll;
+        GameManager.instance.GameOver += SwitchToRagdoll;
+
         GameManager.instance.PlayerStand += SwitchToRig;
     }
 
@@ -24,6 +26,14 @@ public class PlayerRigManager : MonoBehaviour
         direction.y = 0;
 
         ragdollManager.addForceToRagdoll(direction.normalized * 50 + Vector3.up * 10);
+    }
+
+    public void SwitchToRagdoll()
+    {
+        GameManager.instance.PlayerFall -= SwitchToRagdoll;
+        blendRiggingController.globalBlend = 1;
+        ragdollManager.turnOnRagdoll();
+        ragdollManager.addForceToRagdoll(Vector3.up * 10);
     }
 
     public void SwitchToRig() {

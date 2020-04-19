@@ -74,7 +74,11 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         batteryTime = Mathf.Clamp(batteryTime - Time.deltaTime, 0, maxBatteryTime);
-        GameOver?.Invoke();
+
+        if(batteryTime <= 0 && GameOver !=null) {
+            GameOver.Invoke();
+            GameOver = null;
+        }
     }
 
     private void StartedCharging(Outlet outlet) {
