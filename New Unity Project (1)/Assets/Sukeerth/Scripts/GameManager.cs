@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     #endregion
     private Transform player;
     public float chargeTime = 2f;
+    public float downTime = 2f;
     public Transform roomDoor;
     public Transform gate;
 
@@ -25,12 +26,8 @@ public class GameManager : MonoBehaviour
     }
     public event Action<Stage> OnStageChange;
     public event Action<Outlet> OnFinishedCharging;
-    public event Action OnObstacleCollide;
-
-    public void Colliding()
-    {
-        OnObstacleCollide?.Invoke();
-    }
+    public event Action<GameObject> PlayerFall;
+    public event Action PlayerStand;
 
     public Vector3 GetPlayerPosition() {
         return player.position;
@@ -80,6 +77,18 @@ public class GameManager : MonoBehaviour
     private IEnumerator FinishedCharging(Outlet outlet) {
         yield return new WaitForSeconds(chargeTime);
         OnFinishedCharging?.Invoke(outlet);
+    }
+
+    public void Colliding(GameObject o)
+    {
+        PlayerFall?.Invoke(o);
+        StartCoroutine(StandingUp());
+    }
+
+    private IEnumerator StandingUp()
+    {
+        yield return new WaitForSeconds(downTime);
+        PlayerStand?.Invoke();
     }
 }
 

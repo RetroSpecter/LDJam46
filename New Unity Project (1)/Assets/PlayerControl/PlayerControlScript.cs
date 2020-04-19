@@ -12,14 +12,14 @@ public class PlayerControlScript : MonoBehaviour
     public float rotationSpeed = 10f;
     public Transform cam;
 
-    Rigidbody playerBody;
+    bool currentlyDown = false;
     private NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.OnObstacleCollide += Reaction;
-        playerBody = GetComponent<Rigidbody>();
+        GameManager.instance.PlayerFall += Downed;
+        GameManager.instance.PlayerStand += GetUp;
         nav = GetComponent<NavMeshAgent>();
         nav.updateRotation = false;
     }
@@ -27,23 +27,36 @@ public class PlayerControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        if (Vector3.Distance(input, Vector3.zero) > 0.1f) {
-            nav.isStopped = false;
-            Debug.Log("in");
-            input = cam.TransformDirection(input);
-            input.y = 0;
-            nav.SetDestination(transform.position + input.normalized * moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(
-                input, Vector3.up), rotationSpeed * Time.deltaTime);
-        } else {
-            nav.isStopped = true;
-        }
+        if (!currentlyDown)
+        {
 
+            Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            if (Vector3.Distance(input, Vector3.zero) > 0.1f)
+            {
+                nav.isStopped = false;
+                Debug.Log("in");
+                input = cam.TransformDirection(input);
+                input.y = 0;
+                nav.SetDestination(transform.position + input.normalized * moveSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(
+                    input, Vector3.up), rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                nav.isStopped = true;
+            }
+        }
     }
 
-    private void Reaction()
+    private void Downed(GameObject o)
     {
-        Debug.Log("I'm reacting!");
+        currentlyDown = true;
+        // do other things?
+    }
+
+    private void GetUp()
+    {
+        currentlyDown = false;
+        // do other things?
     }
 }
