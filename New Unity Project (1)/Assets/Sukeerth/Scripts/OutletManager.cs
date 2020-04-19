@@ -94,7 +94,8 @@ public struct OutletContainer
             outlet.triggerCollider.enabled = false;
         }
         foreach (Outlet outlet in workingOutlets) {
-            outlet.triggerCollider.enabled = true;
+            if (outlet)
+                outlet.triggerCollider.enabled = true;
         }
     }
 
