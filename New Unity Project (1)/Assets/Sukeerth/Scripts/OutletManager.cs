@@ -92,10 +92,14 @@ public struct OutletContainer
         brokenOutlets = notWorkingOutlets.ToArray();
         foreach (Outlet outlet in brokenOutlets) {
             outlet.triggerCollider.enabled = false;
+            outlet.TurnOn(false);
         }
         foreach (Outlet outlet in workingOutlets) {
             if (outlet)
+            {
                 outlet.triggerCollider.enabled = true;
+                outlet.TurnOn(true);
+            }
         }
     }
 
