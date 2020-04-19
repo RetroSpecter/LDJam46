@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+        currentStage++;
     }
 
     private IEnumerator RotateToOpen(Transform rotatingObject, Vector3 goalRot) {
