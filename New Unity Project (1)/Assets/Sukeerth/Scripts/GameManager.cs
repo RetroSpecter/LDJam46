@@ -42,14 +42,15 @@ public class GameManager : MonoBehaviour
         switch (index) {
             case 1:
                 StartCoroutine(RotateToOpen(roomDoor, new Vector3(-90, 0, -17)));
+                currentStage = Stage.Stage2;
                 break;
             case 2:
                 StartCoroutine(RotateToOpen(gate, new Vector3(0, -153, 0)));
+                currentStage = Stage.Stage3;
                 break;
             default:
                 break;
         }
-        currentStage++;
     }
 
     private IEnumerator RotateToOpen(Transform rotatingObject, Vector3 goalRot) {
