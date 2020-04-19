@@ -12,7 +12,6 @@ public class PlayerControlScript : MonoBehaviour
     public float rotationSpeed = 10f;
     public Transform cam;
 
-    Rigidbody playerBody;
     bool currentlyDown = false;
     private NavMeshAgent nav;
 
@@ -21,7 +20,6 @@ public class PlayerControlScript : MonoBehaviour
     {
         GameManager.instance.PlayerFall += Downed;
         GameManager.instance.PlayerStand += GetUp;
-        playerBody = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
         nav.updateRotation = false;
     }
