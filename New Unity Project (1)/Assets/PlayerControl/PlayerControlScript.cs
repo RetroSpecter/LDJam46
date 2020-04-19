@@ -21,7 +21,6 @@ public class PlayerControlScript : MonoBehaviour
         GameManager.instance.PlayerFall += Downed;
         GameManager.instance.PlayerStand += GetUp;
         nav = GetComponent<NavMeshAgent>();
-        nav.updateRotation = false;
     }
 
     // Update is called once per frame
@@ -29,22 +28,15 @@ public class PlayerControlScript : MonoBehaviour
     {
         if (!currentlyDown)
         {
-
             Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-            if (Vector3.Distance(input, Vector3.zero) > 0.1f)
-            {
-                nav.isStopped = false;
-                Debug.Log("in");
-                input = cam.TransformDirection(input);
-                input.y = 0;
-                nav.SetDestination(transform.position + input.normalized * moveSpeed * Time.deltaTime);
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(
-                    input, Vector3.up), rotationSpeed * Time.deltaTime);
-            }
-            else
-            {
-                nav.isStopped = true;
-            }
+            input = cam.transform.TransformDirection(input);
+            input.y = 0;
+            Vector3 destination = transform.position + input.normalized * moveSpeed * Time.deltaTime;
+            //if (input != Vector3.zero) {
+            //    transform.rotation = Quaternion.Slerp(transform.rotation, 
+            //        Quaternion.LookRotation(input.normalized), rotationSpeed * Time.deltaTime);
+            //}
+            nav.SetDestination(destination);
         }
     }
 

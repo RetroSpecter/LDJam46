@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeTime: 2
+  downTime: 2
   roomDoor: {fileID: 1028650029}
   gate: {fileID: 336683469867124195}
 --- !u!4 &1168629445
@@ -829,6 +830,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5247844323897381235, guid: c04ecea7848b8af4fa88c101e916fe38,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1189086067}
     - target: {fileID: 5247844323897381237, guid: c04ecea7848b8af4fa88c101e916fe38,
         type: 3}
       propertyPath: m_LocalPosition.x
