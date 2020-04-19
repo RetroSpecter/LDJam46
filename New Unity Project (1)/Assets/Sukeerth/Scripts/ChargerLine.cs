@@ -35,7 +35,7 @@ public class ChargerLine : MonoBehaviour
         positions[0] = port.position;
         positions[1] = port.position - transform.forward * endCapRigidity;
         for (int i = 2; i < maxLineSegments + 2; i++) {
-            positions[i] = Vector3.Slerp(port.position, phonePort.position, i * (1.0f / (maxLineSegments + 2)));
+            positions[i] = Vector3.Lerp(port.position, phonePort.position, i * (1.0f / (maxLineSegments + 2)));
         }
         positions[maxLineSegments + 2] = phonePort.position - Vector3.down * endCapRigidity;
         positions[maxLineSegments + 3] = phonePort.position;

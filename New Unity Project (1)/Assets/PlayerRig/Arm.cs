@@ -5,35 +5,23 @@ using UnityEngine;
 public class Arm : MonoBehaviour
 {
 
-    public GameObject testTarget;
     Vector3 initialPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialPos = transform.localPosition;    
+        initialPos = transform.localPosition;
+        OutletManager.instance.ChargingAtOutlet += plugIntoOutlet;
+        GameManager.instance.OnFinishedCharging += unplugFromOutlet;
     }
 
-    // Update is called once per frame
-    void Update()
- {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            unplugFromOutlet();
-        }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            plugIntoOutlet(testTarget);
-        }
-    }
-
-    void unplugFromOutlet() {
+    void unplugFromOutlet(Outlet outlet) {
         transform.localPosition = initialPos;
         transform.forward = transform.parent.transform.forward;
     }
 
-    void plugIntoOutlet(GameObject outlet) {
+    void plugIntoOutlet(Outlet outlet) {
         transform.position = outlet.transform.position;
         transform.forward = -outlet.transform.forward;
     }
