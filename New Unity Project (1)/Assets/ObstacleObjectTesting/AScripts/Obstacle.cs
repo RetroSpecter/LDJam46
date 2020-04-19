@@ -31,6 +31,14 @@ public class Obstacle : MonoBehaviour
             points[current].setAgent(agent);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("yes");
+        if (collision.transform.GetComponent<PlayerControlScript>()) {
+            GameManager.instance.Colliding(this.gameObject);
+        }
+    }
 }
 
 [System.Serializable]

@@ -19,7 +19,12 @@ public class LegStepper : MonoBehaviour
         // If we are already moving, don't start another move
         if (Moving) return;
 
-        float distFromHome = Vector3.Distance(transform.position, homeTransform.position);
+        Vector3 cur = transform.position;
+        cur.y = 0;
+        Vector3 home = homeTransform.position;
+        home.y = 0;
+
+        float distFromHome = Vector3.Distance(cur, home);
 
         // If we are too far off in position or rotation
         if (distFromHome > wantStepAtDistance)

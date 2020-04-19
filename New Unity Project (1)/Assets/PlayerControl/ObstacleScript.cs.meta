@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:New Unity Project (1)/Assets/PlayerRig/Arm.cs.meta
 <<<<<<< HEAD
 guid: 48022dc1999edf8489e5307d4341b8f1
@@ -8,6 +9,9 @@ guid: 1e9bc138e828a2643b07ba8bec1d2e61
 =======
 guid: 9d966dd40079ac4468fdd3c036e1ad1b
 >>>>>>> origin/sukeerth:New Unity Project (1)/Assets/PlayerControl/ObstacleScript.cs.meta
+=======
+guid: 9a65d98a96dbbb74ca95ad8a886bbd23
+>>>>>>> origin/Jose
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
