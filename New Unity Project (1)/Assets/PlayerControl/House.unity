@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeTime: 2
+  downTime: 2
   roomDoor: {fileID: 0}
   gate: {fileID: 0}
 --- !u!4 &1168629445
@@ -525,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 2462505396768797027, guid: 6508032ae0f73b1479a76faf71b504b9,
         type: 3}
       propertyPath: rotationSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2462505396768797029, guid: 6508032ae0f73b1479a76faf71b504b9,
         type: 3}
@@ -740,6 +741,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 336683469113247768, guid: 25d59ed949efc76468a7d03a220f0bbb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6abf78fdb31a214ba05c874f78aa117, type: 2}
+    - target: {fileID: 336683469331822783, guid: 25d59ed949efc76468a7d03a220f0bbb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6abf78fdb31a214ba05c874f78aa117, type: 2}
+    - target: {fileID: 571003343992295174, guid: 25d59ed949efc76468a7d03a220f0bbb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5050b1714f1f4049b64c132f49baa2f, type: 2}
     - target: {fileID: 3166139199364071771, guid: 25d59ed949efc76468a7d03a220f0bbb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
