@@ -29,7 +29,6 @@ public class PlayerControlScript : MonoBehaviour
     {
         if (!currentlyDown)
         {
-
             Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
             if (Vector3.Distance(input, Vector3.zero) > 0.1f)
             {
