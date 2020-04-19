@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public Transform roomDoor;
     public Transform gate;
 
+    public float batteryTime;
+    [HideInInspector]public float maxBatteryTime;
+    public float chargeAmount = 10;
+
     public Stage currentStage {
         get;
         private set;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
     public event Action<Outlet> OnFinishedCharging;
     public event Action<GameObject> PlayerFall;
     public event Action PlayerStand;
+    public event Action GameOver;
 
     public Vector3 GetPlayerPosition() {
         return player.position;
@@ -62,6 +67,12 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         OutletManager.instance.ChargingAtOutlet += StartedCharging;
+        maxBatteryTime = batteryTime;
+    }
+
+    private void Update() {
+        batteryTime = Mathf.Clamp(batteryTime - Time.deltaTime, 0, maxBatteryTime);
+        GameOver?.Invoke();
     }
 
     private void StartedCharging(Outlet outlet) {
@@ -69,7 +80,14 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator FinishedCharging(Outlet outlet) {
-        yield return new WaitForSeconds(chargeTime);
+        float t = 0;
+        float startBatteryTime = batteryTime;
+        while (t < chargeTime) {
+            batteryTime = Mathf.Lerp(startBatteryTime, startBatteryTime+ chargeAmount, t/chargeTime);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        batteryTime = startBatteryTime + chargeAmount;
         OnFinishedCharging?.Invoke(outlet);
     }
 
