@@ -24,17 +24,23 @@ public class Outlet : MonoBehaviour
         flashingShader.on = on;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (!other.CompareTag("Player"))
-            return;
-        float dot = Vector3.Dot(other.transform.position - transform.position, transform.forward);
-        if (dot < 0) {
-            return;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            AudioManager.instance.Play("Charge");
+            GameObject spark = Instantiate(sparksParticle, transform);
+            OutletManager.instance.ChargeAtOutlet(this);
+            Destroy(spark, 1);
+            triggerCollider.enabled = false;
+            flashingShader.on = false;
+            if (!other.CompareTag("Player"))
+                return;
+            float dot = Vector3.Dot(other.transform.position - transform.position, transform.forward);
+            if (dot < 0)
+            {
+                return;
+            }
         }
-        GameObject spark = Instantiate(sparksParticle, transform);
-        OutletManager.instance.ChargeAtOutlet(this);
-        Destroy(spark, 1);
-        triggerCollider.enabled = false;
-        flashingShader.on = false;
     } 
 }
