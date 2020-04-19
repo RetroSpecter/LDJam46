@@ -59,21 +59,21 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DoorOpen
     loop: 0
-    clip: {fileID: 8300000, guid: 52767ba70bed13140bf249d8102e61fa, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: 3002597dd01518a4191c9cd38756d689, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: GateOpen
     loop: 0
-    clip: {fileID: 8300000, guid: 52767ba70bed13140bf249d8102e61fa, type: 3}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 76ca06d38367c6349967c65e3914cea2, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
-  - name: BatteryEmpty
+  - name: BatteryLow
     loop: 0
-    clip: {fileID: 8300000, guid: 52767ba70bed13140bf249d8102e61fa, type: 3}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: faa12c52b71529d4eb96fb7c7fe2a747, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   hurtSounds:
   - name: Hurt
