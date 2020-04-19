@@ -26,6 +26,7 @@ public class Outlet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
+            AudioManager.instance.Play("Charge");
             GameObject spark = Instantiate(sparksParticle, transform);
             OutletManager.instance.ChargeAtOutlet(this);
             Destroy(spark, 1);

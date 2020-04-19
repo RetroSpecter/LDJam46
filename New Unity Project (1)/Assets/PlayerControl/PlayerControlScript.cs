@@ -40,6 +40,7 @@ public class PlayerControlScript : MonoBehaviour
 
     private void Downed(GameObject o)
     {
+        GameManager.instance.isInvulnerable = true;
         currentlyDown = true;
         AudioManager.instance.PlayRandomHurt();
         // do other things?
@@ -47,6 +48,8 @@ public class PlayerControlScript : MonoBehaviour
 
     private void GetUp()
     {
+        GameManager.instance.isInvulnerable = false;
+        AudioManager.instance.PlayRandomRecovery();
         currentlyDown = false;
         Vector3 targetPosition = getUpCenter.transform.position;
         targetPosition.y = transform.position.y;
