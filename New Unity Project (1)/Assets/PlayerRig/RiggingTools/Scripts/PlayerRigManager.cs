@@ -8,6 +8,12 @@ public class PlayerRigManager : MonoBehaviour
     public ragdollManager ragdollManager;
     public BlendRiggingController blendRiggingController;
 
+    private void Start()
+    {
+        GameManager.instance.PlayerFall += SwitchToRagdoll;
+        GameManager.instance.PlayerStand += SwitchToRig;
+    }
+
     /*
     void Update()
     {
@@ -22,12 +28,18 @@ public class PlayerRigManager : MonoBehaviour
         }
     }
     */
-    
 
-    public void SwitchToRagdoll() {
+
+    public void SwitchToRagdoll(GameObject obstacle) {
+        GameManager.instance.PlayerFall -= SwitchToRagdoll;
         blendRiggingController.globalBlend = 1;
         ragdollManager.turnOnRagdoll();
-        ragdollManager.addForceToRagdoll();
+
+
+        Vector3 direction = obstacle.transform.position - transform.position;
+        direction.y = 0;
+
+        ragdollManager.addForceToRagdoll(-direction * 5 + Vector3.up * 10);
     }
 
     public void SwitchToRig() {
@@ -44,5 +56,6 @@ public class PlayerRigManager : MonoBehaviour
         }
         blendRiggingController.globalBlend = 0;
         ragdollManager.resetRagdoll();
+        GameManager.instance.PlayerFall += SwitchToRagdoll;
     }
 }

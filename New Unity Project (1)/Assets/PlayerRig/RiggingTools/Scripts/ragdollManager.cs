@@ -46,8 +46,8 @@ public class ragdollManager : MonoBehaviour
         }
     }
 
-    public void addForceToRagdoll() {
-        jointRigid[0].AddForce(Vector3.one, ForceMode.Impulse);
+    public void addForceToRagdoll(Vector3 direction) {
+        jointRigid[0].AddForce(direction, ForceMode.Impulse);
     }
 
     public void resetRagdoll() {
