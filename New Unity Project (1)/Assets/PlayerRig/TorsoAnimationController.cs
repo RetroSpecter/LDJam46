@@ -16,6 +16,12 @@ public class TorsoAnimationController : MonoBehaviour
         StartCoroutine(LegUpdateCoroutine());
     }
 
+    private void Start()
+    {
+        GameManager.instance.OnFinishedCharging += TurnOnStep;
+        OutletManager.instance.ChargingAtOutlet += turnOffStep;
+    }
+
     private void Update()
     {
         FloorTransform(leftHomePosition);
@@ -35,11 +41,24 @@ public class TorsoAnimationController : MonoBehaviour
         }
     }
 
+    public void TurnOnStep(Outlet g) {
+        on = true;
+    }
+
+    public void turnOffStep(Outlet g) {
+        on = false;
+    }
+
+    bool on = true;
     IEnumerator LegUpdateCoroutine()
     {
         // Run continuously
         while (true)
         {
+            if (!on) {
+                yield return null;
+                continue;
+            }
             // Try moving one diagonal pair of legs
             do
             {

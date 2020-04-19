@@ -23,7 +23,7 @@ public class PlayerRigManager : MonoBehaviour
         Vector3 direction = obstacle.transform.position - transform.position;
         direction.y = 0;
 
-        ragdollManager.addForceToRagdoll(direction * 50 + Vector3.up * 10);
+        ragdollManager.addForceToRagdoll(direction.normalized * 50 + Vector3.up * 10);
     }
 
     public void SwitchToRig() {
