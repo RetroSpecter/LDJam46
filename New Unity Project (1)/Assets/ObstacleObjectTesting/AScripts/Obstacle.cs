@@ -19,6 +19,10 @@ public class Obstacle : MonoBehaviour
     void Start () 
     {
         current = 0;
+        if (points.Length == 0)
+        {
+            points = new Waypoint[] {new Waypoint(transform, 0, 0)};
+        }
         points[current].setAgent(agent);
     }
     void Update () 
