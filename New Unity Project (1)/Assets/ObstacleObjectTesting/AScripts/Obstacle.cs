@@ -23,7 +23,6 @@ public class Obstacle : MonoBehaviour
     }
     void Update () 
     {
-        /*
         if (agent.remainingDistance == 0) {
             current++;
             if (current >= points.Length) {
@@ -31,11 +30,11 @@ public class Obstacle : MonoBehaviour
             }
             points[current].setAgent(agent);
         }
-        */
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        print("yes");
         if (collision.transform.GetComponent<PlayerControlScript>()) {
             GameManager.instance.Colliding(this.gameObject);
         }

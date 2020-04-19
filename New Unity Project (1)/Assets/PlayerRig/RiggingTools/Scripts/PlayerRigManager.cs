@@ -14,22 +14,6 @@ public class PlayerRigManager : MonoBehaviour
         GameManager.instance.PlayerStand += SwitchToRig;
     }
 
-    /*
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SwitchToRig();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SwitchToRagdoll();
-        }
-    }
-    */
-
-
     public void SwitchToRagdoll(GameObject obstacle) {
         GameManager.instance.PlayerFall -= SwitchToRagdoll;
         blendRiggingController.globalBlend = 1;
@@ -39,7 +23,7 @@ public class PlayerRigManager : MonoBehaviour
         Vector3 direction = obstacle.transform.position - transform.position;
         direction.y = 0;
 
-        ragdollManager.addForceToRagdoll(-direction * 5 + Vector3.up * 10);
+        ragdollManager.addForceToRagdoll(direction * 50 + Vector3.up * 10);
     }
 
     public void SwitchToRig() {

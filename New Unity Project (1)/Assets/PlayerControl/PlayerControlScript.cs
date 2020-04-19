@@ -13,6 +13,8 @@ public class PlayerControlScript : MonoBehaviour
 
     bool currentlyDown = false;
     private NavMeshAgent nav;
+    public GameObject getUpCenter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,9 @@ public class PlayerControlScript : MonoBehaviour
     private void GetUp()
     {
         currentlyDown = false;
+        Vector3 targetPosition = getUpCenter.transform.position;
+        targetPosition.y = transform.position.y;
+        nav.Warp(targetPosition);
         // do other things?
     }
 }

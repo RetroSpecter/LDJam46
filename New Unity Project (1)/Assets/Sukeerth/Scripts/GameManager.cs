@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void Colliding(GameObject o)
     {
+
         PlayerFall?.Invoke(o);
         StartCoroutine(StandingUp());
     }
