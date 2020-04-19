@@ -43,10 +43,12 @@ public class GameManager : MonoBehaviour
         switch (index) {
             case 1:
                 StartCoroutine(RotateToOpen(roomDoor, new Vector3(-90, 0, -17)));
+                AudioManager.instance.Play("DoorOpen");
                 currentStage = Stage.Stage2;
                 break;
             case 2:
                 StartCoroutine(RotateToOpen(gate, new Vector3(0, -153, 0)));
+                AudioManager.instance.Play("GateOpen");
                 currentStage = Stage.Stage3;
                 break;
             default:
