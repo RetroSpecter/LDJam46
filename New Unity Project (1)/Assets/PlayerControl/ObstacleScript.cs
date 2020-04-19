@@ -15,12 +15,11 @@ public class ObstacleScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
         {
-            GameManager.instance.Colliding();
+            GameManager.instance.Colliding(gameObject);
         }
     }
-
 }

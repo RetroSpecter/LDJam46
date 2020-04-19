@@ -19,10 +19,10 @@ public class Outlet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            Debug.Log("YO");
             GameObject spark = Instantiate(sparksParticle, transform);
             OutletManager.instance.ChargeAtOutlet(this);
             Destroy(spark, 1);
+            triggerCollider.enabled = false;
         }
-    }
+    } 
 }

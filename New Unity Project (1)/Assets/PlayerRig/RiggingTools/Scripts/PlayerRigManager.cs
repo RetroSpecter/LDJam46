@@ -8,18 +8,21 @@ public class PlayerRigManager : MonoBehaviour
     public ragdollManager ragdollManager;
     public BlendRiggingController blendRiggingController;
 
+    /*
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SwitchToRig();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             SwitchToRagdoll();
         }
     }
+    */
+    
 
     public void SwitchToRagdoll() {
         blendRiggingController.globalBlend = 1;

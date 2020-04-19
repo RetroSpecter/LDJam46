@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 90368c765615df6499da40cd18ff5d52
+=======
+<<<<<<< HEAD:New Unity Project (1)/Assets/Unity/ConstraintSamples/Scenes/2BoneIK.unity.meta
+guid: b12116126b70e6840afc658eba9cd24d
+=======
+guid: 90368c765615df6499da40cd18ff5d52
+>>>>>>> origin/sukeerth:New Unity Project (1)/Assets/Unity/ConstraintSamples/Scenes/Blend.unity.meta
+>>>>>>> origin/sukeerth
 DefaultImporter:
   externalObjects: {}
   userData: 

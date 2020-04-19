@@ -26,10 +26,10 @@ public class TorsoAnimationController : MonoBehaviour
     {
         Vector3 raycastPos = home.position;
         raycastPos.y = transform.position.y;
-        Debug.DrawRay(raycastPos, -transform.up * 10, Color.blue);
+        Debug.DrawRay(raycastPos, -Vector3.up * 10, Color.blue);
 
         RaycastHit hit;
-        if (Physics.Raycast(raycastPos, -transform.up, out hit, 1000, ground))
+        if (Physics.Raycast(raycastPos, -Vector3.up, out hit, 1000, ground))
         {
             home.position = hit.point;
         }

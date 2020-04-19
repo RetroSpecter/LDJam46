@@ -2,41 +2,49 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerControlScript : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
+    public Transform cam;
 
-    Rigidbody playerBody;
+    bool currentlyDown = false;
+    private NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.OnObstacleCollide += Reaction;
-        playerBody = GetComponent<Rigidbody>();
+        GameManager.instance.PlayerFall += Downed;
+        GameManager.instance.PlayerStand += GetUp;
+        nav = transform.parent.GetComponent<NavMeshAgent>();
+        nav.updateRotation = false;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        playerBody.velocity = new Vector3(0, playerBody.velocity.y, 0);
-        float distance = moveSpeed * Time.deltaTime;
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(xAxis, 0f, yAxis / 4).normalized * distance;
-
-        if (xAxis != 0)
+        if (!currentlyDown)
         {
-            playerBody.MoveRotation(Quaternion.Euler(0, playerBody.transform.eulerAngles.y + (xAxis * rotationSpeed), 0));
+            float input = Input.GetAxisRaw("Vertical");
+            transform.forward = new Vector3(cam.forward.x, 0, cam.forward.z);
+            Vector3 destination = transform.position + transform.forward *
+                input * moveSpeed * Time.deltaTime;
+            nav.SetDestination(destination);
         }
-        playerBody.MovePosition(transform.forward * movement.z + transform.right * movement.x + transform.position);
     }
 
-    private void Reaction()
+    private void Downed(GameObject o)
     {
-        Debug.Log("I'm reacting!");
+        currentlyDown = true;
+        // do other things?
+    }
+
+    private void GetUp()
+    {
+        currentlyDown = false;
+        // do other things?
     }
 }
