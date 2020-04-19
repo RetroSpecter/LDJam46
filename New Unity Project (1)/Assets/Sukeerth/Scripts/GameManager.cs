@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         float t = 0;
         float startBatteryTime = batteryTime;
         while (t < chargeTime) {
-            batteryTime = Mathf.Lerp(startBatteryTime, startBatteryTime+ chargeAmount, t/chargeTime);
+            batteryTime = Mathf.Lerp(startBatteryTime, startBatteryTime + chargeAmount, t/chargeTime);
             t += Time.deltaTime;
             yield return null;
         }
