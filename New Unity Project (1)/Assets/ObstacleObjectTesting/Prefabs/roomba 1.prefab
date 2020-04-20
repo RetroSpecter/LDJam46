@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: -430469083079902020}
   - component: {fileID: 4456777533660738950}
   - component: {fileID: -2364442103085579514}
+  - component: {fileID: -1912316504021073540}
   m_Layer: 0
   m_Name: roomba 1
   m_TagString: Untagged
@@ -150,6 +151,8 @@ MonoBehaviour:
   points: []
   current: 0
   agent: {fileID: 0}
+  hitParticle: {fileID: 4590305658635306871, guid: 8b9134422f57930469e262b84f5dba73,
+    type: 3}
 --- !u!195 &-2364442103085579514
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -172,6 +175,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &-1912316504021073540
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323491165960849626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.01
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4991637330051981972
 GameObject:
   m_ObjectHideFlags: 0

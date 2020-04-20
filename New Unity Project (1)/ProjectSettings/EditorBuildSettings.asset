@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Sukeerth/Title Scene.unity
     guid: 2f2d403d9074ef148aa399ad4a2e97aa
   - enabled: 1
-    path: Assets/CurrentFunctionalScene.unity
-    guid: c4bd350f1e0348041bfd03b1511e5585
+    path: Assets/Sukeerth/Sukeerth.unity
+    guid: bbb5b977184bbc04aae95cec476245c1
   - enabled: 1
     path: Assets/Sukeerth/End Game Scene.unity
     guid: 1367a99f4d9e91b448a3a6020cffc15a
