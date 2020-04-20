@@ -21,6 +21,7 @@ public class OutletManager : MonoBehaviour
 
     private OutletContainer[] containers;
     private int currentOutletNum;
+    public Outlet lastChargedOutlet;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,8 @@ public class OutletManager : MonoBehaviour
     }
 
     public void ChargeAtOutlet(Outlet outlet) {
+        lastChargedOutlet = outlet;
+        containers[GetCurrentStage()].FlipBreakers(GameManager.instance.GetPlayerPosition());
         ChargingAtOutlet?.Invoke(outlet);
     }
 
@@ -74,22 +77,12 @@ public struct OutletContainer
     }
 
     public void FlipBreakers(Vector3 playerPosition) {
-        float[] maxDist = new float[2];
+        List<float> distances = new List<float>();
         workingOutlets = new Outlet[2];
-        List<Outlet> notWorkingOutlets = new List<Outlet>();
-        for (int i = 0; i < outlets.Length; i++) {
-            float dist = Vector3.Distance(outlets[i].transform.position, playerPosition);
-            if (dist > maxDist[0]) {
-                maxDist[0] = dist;
-                workingOutlets[0] = outlets[i];
-            } else if (dist > maxDist[1]) {
-                maxDist[1] = dist;
-                workingOutlets[1] = outlets[i];
-            } else {
-                notWorkingOutlets.Add(outlets[i]);
-            }
-        }
-        brokenOutlets = notWorkingOutlets.ToArray();
+        outlets = outlets.ToList().OrderByDescending(x => 
+            Vector3.Distance(x.transform.position, playerPosition)).ToArray();
+        workingOutlets = outlets.Take(2).ToArray();
+        brokenOutlets = outlets.Skip(2).Take(outlets.Length - 2).ToArray();
         foreach (Outlet outlet in brokenOutlets) {
             outlet.triggerCollider.enabled = false;
             outlet.TurnOn(false);

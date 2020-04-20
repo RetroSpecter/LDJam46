@@ -30,6 +30,7 @@ public class Outlet : MonoBehaviour
         {
             if (!other.CompareTag("Player"))
                 return;
+            if (OutletManager.instance.lastChargedOutlet == this) return;
             float dot = Vector3.Dot(other.transform.position - transform.position, transform.forward);
             if (dot < 0) {
                 return;
