@@ -88,10 +88,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746323856720149193}
-  - component: {fileID: -430469083079902020}
   - component: {fileID: 4456777533660738950}
   - component: {fileID: -2364442103085579514}
-  - component: {fileID: -1912316504021073540}
+  - component: {fileID: -7718917074874040575}
   m_Layer: 0
   m_Name: roomba 1
   m_TagString: Untagged
@@ -107,8 +106,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4323491165960849626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6693563, y: 12.146, z: 10.893967}
-  m_LocalScale: {x: 0.66172, y: 0.66172, z: 0.66172}
+  m_LocalPosition: {x: -3.6693563, y: 12.272, z: 10.893967}
+  m_LocalScale: {x: 0.4102664, y: 0.4102664, z: 0.4102664}
   m_Children:
   - {fileID: 1560276175411408778}
   - {fileID: 4926859218931542111}
@@ -119,22 +118,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &-430469083079902020
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323491165960849626}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4456777533660738950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +134,6 @@ MonoBehaviour:
   points: []
   current: 0
   agent: {fileID: 0}
-  hitParticle: {fileID: 4590305658635306871, guid: 8b9134422f57930469e262b84f5dba73,
-    type: 3}
 --- !u!195 &-2364442103085579514
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -175,7 +156,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &-1912316504021073540
+--- !u!136 &-7718917074874040575
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,10 +166,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.01
+  m_Radius: 1.2
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4991637330051981972
 GameObject:
   m_ObjectHideFlags: 0
