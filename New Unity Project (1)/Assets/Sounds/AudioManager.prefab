@@ -69,131 +69,143 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: BatteryLow
-    loop: 0
-    clip: {fileID: 8300000, guid: faa12c52b71529d4eb96fb7c7fe2a747, type: 3}
-    volume: 1
+  - name: BeepFast
+    loop: 1
+    clip: {fileID: 8300000, guid: ef66deb2cf9a46548a3e738a4a6c8035, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: BeepSlow
+    loop: 1
+    clip: {fileID: 8300000, guid: 1b3ba264e2c65644a825b38696f1163d, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   hurtSounds:
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: f4acd40dd394cab44a917dbfebb12fb6, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.6
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: ada63c0b935e70942ae70ebb19e3014d, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: ed2ddc7f404165a439591ded6530b5ee, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.6
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 26387529b505fc445a4715f88d62151a, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.8
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: d8eed40807ab78649a126d2ecd4f5290, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: cbaf92acfede0e844a5f73d76cb3fd7c, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 8c7df993c2770bb48bda0a28e079450d, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.9
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 94430e677d9110d4f9528c0341e1bacf, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.8
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 432a612222acc234a91c85e74d4b6a01, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 09e9552ec26a40b40989cfec8a604214, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: a1093fe9d4558dd428977bb6e71c4040, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 41572fae1e0ad6e4cb2e988ef7fd4047, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 80eeb22985958c449a20b80f2252ca61, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.8
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 3afceb171e09a9940a38d2c0bf079c8c, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
   - name: Hurt
     loop: 0
     clip: {fileID: 8300000, guid: 81221b8ee224dad4985d4f7ce32b631a, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hurt
+    loop: 0
+    clip: {fileID: 8300000, guid: 3734d15e107c851458fb42d0a9adde5b, type: 3}
+    volume: 0.6
+    pitch: 1
     source: {fileID: 0}
   recoverySounds:
   - name: Recovery
     loop: 0
     clip: {fileID: 8300000, guid: 142ab90bcf0dca449ac0bcdb432d561f, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}
   - name: Recovery
     loop: 0
     clip: {fileID: 8300000, guid: ac0f312be30416145a7cd108c7d84a7e, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}
   - name: Recovery
     loop: 0
     clip: {fileID: 8300000, guid: 22d62daa8edfe5b42b16de209f5e4c54, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}
   - name: Recovery
     loop: 0
     clip: {fileID: 8300000, guid: 71b64d942623d2d4fbd04d8fbfa80144, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}
   - name: Recovery
     loop: 0
     clip: {fileID: 8300000, guid: 1e5245d908944bc4d9a3d13034dfa8c2, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.75
+    pitch: 1
     source: {fileID: 0}

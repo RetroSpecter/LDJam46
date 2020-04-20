@@ -15,6 +15,7 @@ public class BatteryLifeUI : MonoBehaviour
     public Gradient barColorOverFill;
     [Range(0,1)]
     public float flashingThreshold = 0.2f;
+    public float redThreshold = 0.3f;
     public float flashingRate = 10;
     // Update is called once per frame
     void Update()
@@ -27,6 +28,31 @@ public class BatteryLifeUI : MonoBehaviour
         ratio = Mathf.Clamp01(ratio);
         text.text = "" + Mathf.Round(ratio * 100) + "%";
         slider.value = ratio;
+
+        AudioManager mgr = AudioManager.instance;
+
+        if (ratio < redThreshold && ratio > 0)
+        {
+            if (ratio < flashingThreshold)
+            {
+                mgr.Stop("BeepSlow");
+                if (!mgr.IsPlaying("BeepFast"))
+                {
+                    mgr.Play("BeepFast");
+                }
+            } else
+            {
+                mgr.Stop("BeepFast");
+                if (!mgr.IsPlaying("BeepSlow"))
+                {
+                    mgr.Play("BeepSlow");
+                }
+            }
+        } else
+        {
+            mgr.Stop("BeepSlow");
+            mgr.Stop("BeepFast");
+        }
 
         Color curColor = barColorOverFill.Evaluate(ratio);
         bar.color = curColor;
