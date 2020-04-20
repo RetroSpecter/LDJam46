@@ -219,8 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9153c9ef874735a4ea8699abe071192f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerCollider: {fileID: 0}
-  sparksParticle: {fileID: 0}
+  triggerCollider: {fileID: 6828051462431975774}
+  sparksParticle: {fileID: 6147380851929041112, guid: bbab7f36822d85a42a881f0ca1578a31,
+    type: 3}
 --- !u!114 &7703508197688249003
 MonoBehaviour:
   m_ObjectHideFlags: 0

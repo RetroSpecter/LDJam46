@@ -76,7 +76,12 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         batteryTime = Mathf.Clamp(batteryTime - Time.deltaTime, 0, maxBatteryTime);
-        GameOver?.Invoke();
+
+        if(batteryTime <= 0 && GameOver !=null) {
+            GameOver.Invoke();
+            GameOver = null;
+            StartCoroutine(EndGame());
+        }
     }
 
     private void StartedCharging(Outlet outlet) {
@@ -106,6 +111,12 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(downTime);
         PlayerStand?.Invoke();
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }
 
