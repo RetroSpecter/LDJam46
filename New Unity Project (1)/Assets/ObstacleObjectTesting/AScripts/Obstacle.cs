@@ -11,6 +11,8 @@ public class Obstacle : MonoBehaviour
     public Waypoint[] points;
     public int current;
     public NavMeshAgent agent;
+    public GameObject hitParticle;
+
 
     public virtual void Obstruct() {
         Debug.Log("You have been obstructed");
@@ -40,6 +42,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.transform.GetComponent<PlayerControlScript>() && !GameManager.instance.isInvulnerable) {
             AudioManager.instance.Play("Impact");
+            Instantiate(hitParticle, collision.GetContact(0).point, Quaternion.identity);
             GameManager.instance.Colliding(this.gameObject);
         }
     }

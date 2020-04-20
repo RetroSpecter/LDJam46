@@ -51,8 +51,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bde73fd16bb5f4db7986a6b9459ddd, type: 3}
   m_Name: NewVignetteFeature
   m_EditorClassIdentifier: 
+  m_Active: 1
   settings:
-    vignetteMaterial: {fileID: 2100000, guid: f434f92a7367b3a438b80db6cfc2ac74, type: 2}
+    vignetteMaterial: {fileID: 0}
+--- !u!114 &-1752731967955525391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: NewRenderObjects
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: NewRenderObjects
+    Event: 300
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 2048
+      PassNames: []
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 1
+    depthCompareFunction: 8
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &-372156311467620986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +124,9 @@ MonoBehaviour:
   - {fileID: 8501196427777190329}
   - {fileID: -8316865526383871016}
   - {fileID: 4975777995363683555}
-  m_RendererFeatureMap: b9a97a1b1c51fa75d87b324fde8e948ce38cdb56b9830d45
+  - {fileID: 4967882404378766266}
+  - {fileID: -1752731967955525391}
+  m_RendererFeatureMap: b9a97a1b1c51fa75d87b324fde8e948ce38cdb56b9830d45baebe8ceb976f144f1208abf8f0bade7
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -98,7 +140,7 @@ MonoBehaviour:
     m_Bits: 1591
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -107,6 +149,21 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &4967882404378766266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bde73fd16bb5f4db7986a6b9459ddd, type: 3}
+  m_Name: NewVignetteFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    vignetteMaterial: {fileID: 2100000, guid: f434f92a7367b3a438b80db6cfc2ac74, type: 2}
 --- !u!114 &4975777995363683555
 MonoBehaviour:
   m_ObjectHideFlags: 0
