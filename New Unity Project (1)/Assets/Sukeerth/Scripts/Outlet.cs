@@ -26,7 +26,7 @@ public class Outlet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !GameManager.instance.isInvulnerable)
         {
             AudioManager.instance.Play("Charge");
             GameObject spark = Instantiate(sparksParticle, transform);

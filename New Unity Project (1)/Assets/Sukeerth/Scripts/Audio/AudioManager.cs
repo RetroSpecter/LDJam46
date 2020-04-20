@@ -31,8 +31,8 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = masterVolume;
-            s.source.pitch = 1;
+            s.source.volume = masterVolume * s.volume;
+            s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
 
@@ -40,8 +40,8 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = masterVolume;
-            s.source.pitch = 1;
+            s.source.volume = masterVolume * s.volume;
+            s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
     }
@@ -63,8 +63,8 @@ public class AudioManager : MonoBehaviour
         Sound s = hurtSounds[UnityEngine.Random.Range(0, hurtSounds.Length)];
         if (s != null)
         {
-            Debug.Log("S AIN'T NULL");
             s.source.Play();
+            Debug.Log(s.source.clip.name);
         }
     }
 
@@ -74,6 +74,7 @@ public class AudioManager : MonoBehaviour
         if (s != null)
         {
             s.source.Play();
+            Debug.Log(s.source.clip.name);
         }
     }
 
