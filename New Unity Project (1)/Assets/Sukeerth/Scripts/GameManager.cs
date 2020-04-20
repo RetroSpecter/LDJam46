@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
         if(batteryTime <= 0 && GameOver !=null) {
             GameOver.Invoke();
             GameOver = null;
+            StartCoroutine(EndGame());
         }
     }
 
@@ -110,6 +111,12 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(downTime);
         PlayerStand?.Invoke();
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }
 
