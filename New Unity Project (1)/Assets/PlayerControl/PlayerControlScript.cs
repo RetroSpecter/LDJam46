@@ -20,6 +20,7 @@ public class PlayerControlScript : MonoBehaviour
     void Start()
     {
         GameManager.instance.PlayerFall += Downed;
+        GameManager.instance.GameOver += Downed;
         GameManager.instance.PlayerStand += GetUp;
         nav = transform.parent.GetComponent<NavMeshAgent>();
         nav.updateRotation = false;
@@ -39,6 +40,11 @@ public class PlayerControlScript : MonoBehaviour
     }
 
     private void Downed(GameObject o)
+    {
+        Downed();
+    }
+
+    private void Downed()
     {
         GameManager.instance.isInvulnerable = true;
         currentlyDown = true;

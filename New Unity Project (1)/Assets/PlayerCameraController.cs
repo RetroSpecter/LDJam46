@@ -16,9 +16,15 @@ public class PlayerCameraController : MonoBehaviour
         GameManager.instance.PlayerStand += setDefaultCam;
         GameManager.instance.OnFinishedCharging += setDefaultCam;
         OutletManager.instance.ChargingAtOutlet += setChargingCam;
+        GameManager.instance.GameOver += setRagdollCam;
     }
 
     void setRagdollCam(GameObject g) {
+        ragdollCam.Priority = 11;
+    }
+
+    void setRagdollCam()
+    {
         ragdollCam.Priority = 11;
     }
 
